@@ -1,0 +1,38 @@
+.figure-overlay a div p i, a:hover, .home-slider2 .flexslider li .content .number, .home-slider3 .flexslider.home-slider3-gallery ul li .content .date .day, .search-page h2 i, .search-page .search-info i, .widget ul.social-subscribers li p { color:#45b519; }
+
+ul.list-arrow li { list-style-image:url(images/green/list-arrow.png); }
+ul.list-arrow-bold li { list-style-image:url(images/green/list-arrow-bold.png); }
+
+ul.nav-tabs li a:hover, ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover, #main-navigation ul li a:hover, #main-navigation ul li.active > a, .home-slider .flexslider.home-slider-carousel ul li.flex-active-slide .date, .home-slider2 .flexslider .flex-control-nav li a.flex-active, .home-slider3 .flexslider.home-slider3-carousel ul li:hover, .home-slider3 .flexslider.home-slider3-carousel ul li.flex-active-slide, .headlines .base, .breadcrumb .base, .post figure .cat-name .base, .home-reviews .header .base, .home-galleries .header .base, .home-reviews .item figure .base-val, .home-reviews .item .content .base-rate .rate-val, .nav-pagination ul li.active a, .nav-pagination ul li a:hover, .blog-reviews .post figure .base-val, .blog-reviews .post .text .base-rate .rate-val, .portofolio ul.portofolio-filter li a, .single .tags a, .single .post-author .content a, .single .rate-details .base-rate .rate-val, .page .rate-details .base-rate .rate-val, #main.single .header h4, #main.page .header h4, .widget .header h4, .widget .enews-tab ul.nav-tabs li a:hover, .widget .enews-tab ul.nav-tabs li.active a, .flex-control-paging li a.flex-active { background-color:#45b519; }
+input[type="submit"], input[type="button"], input[type="reset"], button, .btn { background-color:#45b519; }
+input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, button:hover, .btn:hover { background-color:#338812; }
+.single figure.head-section .head-section-content h1 { background-color:#78d354; }
+.portofolio ul.portofolio-filter li a:hover, .portofolio ul.portofolio-filter li a.active { background-color:#338812; }
+
+blockquote { border-left:3px solid #45b519; }
+.post figure .cat-name .arrow { border-right: 10px solid #216805; }
+.home-reviews .header .arrow.arrow-left, .home-galleries .header .arrow.arrow-left { border-right: 10px solid #216805; }
+.home-reviews .header .arrow.arrow-right, .home-galleries .header .arrow.arrow-right { border-left: 10px solid #216805; }
+
+.pricing-table .table-column.table-popular .table-header {
+	border-bottom:1px solid #2a6f0e;
+	background-color:#41aa17;
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#49b81d), to(#358f11));
+	background:-webkit-linear-gradient(top, #49b81d, #358f11);
+	background:-moz-linear-gradient(top, #49b81d, #358f11);
+	background:-ms-linear-gradient(top, #49b81d, #358f11);
+	background:-o-linear-gradient(top, #43b218, #358f11);
+}
+.pricing-table .table-column.table-popular .table-price { background-color:#6ac546; }
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+	.headlines { border-left:5px solid #45b519; }
+
+}
+
+@media (max-width: 767px) {
+	
+	.headlines { border-left:5px solid #45b519; }
+	
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8">
+  <title><%= content_for?(:page_header) ? "Xesporte - #{yield(:page_header)}" : 'Xesporte' %></title>
+  <meta name="keywords" content="esporte, academia" />
+  <meta name="description" content="Esportes Arapiraca">
+  <meta name="author" content="hhernanni">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <noscript><link rel="stylesheet" href="css/no-js.css"></noscript> <!-- If JavaScript Disabled -->
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" sizes='25x25' href="assets/logo_skull.jpg">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'layouts/top_navigation' %>
+
+  <div class="container">
+    <%= render 'layouts/header' %>
+
+    <%= render 'layouts/messages' %><br/>
+
+    <%= render 'layouts/main_navigation' %>
+
+    <%= yield %>
+  </div>
+
+  <%= render 'layouts/footer' %>
+
+  <%= render 'layouts/footer_down' %>
+
+  <a href="#" class="scrollup" title="Back to Top!">Scroll</a>
+
+  <%= render 'layouts/theme_options' %>
+
+</body>
+</html>

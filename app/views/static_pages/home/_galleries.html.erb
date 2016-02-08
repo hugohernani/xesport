@@ -1,0 +1,33 @@
+<!-- Gallery Posts -->
+<div class="home-galleries no-margin-left">
+
+ <!-- Header -->
+ <div class="header">
+  <div class="base">
+   <h4>Galeria</h4>
+   <div class="nav-control">
+    <span class="previous"></span><span class="next"></span>
+   </div>
+  </div>
+  <div class="arrow arrow-left"></div>
+  <div class="arrow arrow-right"></div>
+ </div>
+
+ <% @galery.each_slice(2) do |item_sliced| %>
+  <% item_sliced.each do |item| %>
+    <div class="item">
+     <figure class="figure-overlay figure-overlay-icon">
+       <%= link_to '#' do %>
+         <%= image_tag(item.images.first.file.url(:medium), alt:item.title) if item.images.any? %>
+         <div><p class="icon-plus"></p></div>
+       <% end %>
+     </figure>
+     <p><%= item.title if item.title.present? %></p>
+    </div>
+  <% end %>
+  <div class="clearfix"></div> <!-- Clearfix -->
+ <% end %>
+
+</div> <!-- End Galleries -->
+
+<div class="clearfix ie-sep"></div> <!-- Clearfix -->

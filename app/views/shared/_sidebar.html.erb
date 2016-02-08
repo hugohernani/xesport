@@ -1,0 +1,146 @@
+<div id="sidebar" class="span4">
+
+ <div class="widget clearfix">
+  <ul class="social-subscribers">
+   <li>
+    <a href="#" data-original-title="Like us on Facebook">
+      <%= image_tag(image_url('social/somacro/facebook.png'), alt:'Facebook') %>
+    </a>
+    <p>25,645<i>curtidas</i></p>
+   </li>
+   <li>
+    <a href="#" data-original-title="Follow us on Twitter">
+      <%= image_tag(image_url('social/somacro/twitter.png'), alt:'Twitter') %>
+    </a>
+    <p>8,480<i>seguidores</i></p>
+   </li>
+   <li>
+    <a href="#" data-original-title="Subscribe our RSS Feed">
+      <%= image_tag(image_url('social/somacro/rss.png'), alt:'RSS') %>
+    </a>
+    <p><%= "#{@page_counter}<i>visitantes</i>".html_safe %></p>
+   </li>
+  </ul>
+ </div> <!-- End Widget -->
+
+ <div class="widget clearfix">
+  <div class="enews-tab">
+
+   <!-- Tab Menu -->
+   <ul class="nav nav-tabs" id="enewsTabs">
+    <li><a href="#tab-populars" data-toggle="tab">Populares</a></li>
+    <li class="active"><a href="#tab-recents" data-toggle="tab">Recentes</a></li>
+    <li><a href="#tab-comments" data-toggle="tab">Comentários</a></li>
+   </ul>
+
+   <div class="tab-content">
+    <div class="tab-pane" id="tab-populars">
+      <% entries_with_impressionist_count(@most_popular_entries).each do |entry_map| %>
+        <div class="item">
+          <% if entry_map[0].images.any? %>
+            <figure class="pull-left">
+              <%= image_tag(entry_map[0].images.first.url(:small), alt:entry_map[0].title) %>
+            </figure>
+          <% end %>
+         <div class="pull-right content">
+          <h4><%= link_to entry_map[0].title, '#', title: "Veja #{entry_map[0].title}" %></h4>
+          <%= content_tag :p, class: 'meta' do %>
+            <%= entry_map[1] %> visualizações&nbsp;&nbsp;49 comments
+          <% end %>
+         </div>
+        </div>
+      <% end %>
+    </div> <!-- End Populars -->
+
+    <div class="tab-pane active" id="tab-recents">
+      <% @recent_entries.each do |entry| %>
+        <div class="item">
+         <figure class="pull-left">
+           <%= image_tag(entry.images.first.file.url(:small), alt:entry.title) if entry.images.any? %>
+         </figure>
+         <div class="pull-right content">
+          <h4><%= link_to entry.title, '#', title: "Veja #{entry.title}" %></h4>
+          <%= content_tag :p, class: 'meta' do %>
+            Na CATEGORIA TAL. <%= distance_of_time_in_words(entry.created_at, Date.today) %>
+          <% end %>
+         </div>
+        </div>
+      <% end %>
+    </div> <!-- End Recents -->
+   </div> <!-- End Tab-Content -->
+
+   <div class="tab-pane" id="tab-comments">
+
+    <% @last_comments.each do |comment| %>
+      <div class="item">
+        <figure class="pull-left">
+          <%= image_tag(comment.user.avatar(:thumb), alt: comment.user.name) %>
+        </figure>
+        <div class="pull-right content">
+          <p><%= link_to comment.user.name, '#' %> no <%= link_to comment.entry.title, '#' %></p>
+        </div>
+      </div>
+    <% end %>  <!-- End Comments -->
+   </div> <!-- End Comments -->
+  </div> <!-- End Enews-Tab -->
+ </div> <!-- End Widget -->
+
+ <div class="widget clearfix">
+  <div class="sponsors">
+
+   <div class="header">
+    <h4>Anúncios</h4>
+   </div>
+
+   <div class="content">
+     <% @ads.each do |ad| %>
+      <%= image_tag(ad.images.first.file.url(:ads), alt: 'Anúncio') if ad.images.any? %>
+     <% end %>
+   </div>
+
+  </div>
+ </div> <!-- End Widget -->
+
+ <div class="widget clearfix">
+  <div class="best-picture">
+
+   <div class="header">
+    <h4>Melhores imagens de porfolios</h4>
+   </div>
+
+   <div class="content">
+    <p><a href="single_photo.html" title="View permalink House in The Woods">Aenean dictum pharetra nibh, sodales luctus felis aliquet at. Nulla vulputate venenatis orci [..]</a></p>
+
+    <!-- Photo Galleries -->
+    <figure class="flexslider loading">
+     <ul class="slides">
+       <% @portfolios_images.each do |image| %>
+        <li><%= image_tag(image_url(image)) %></li>
+       <% end %>
+     </ul>
+    </figure>
+   </div>
+
+  </div>
+ </div> <!-- End Widget -->
+
+ <div class="widget clearfix">
+  <div class="best-video">
+
+   <div class="header">
+    <h4>Último vídeo adicionado</h4>
+   </div>
+
+   <div class="content">
+    <%= content_tag :p do %>
+      <% link_to @most_recent_video.title, '#' if @most_recent_video %>
+    <% end %>
+    <%= content_tag :figure do %>
+      <%= content_tag :iframe, '', height:'180', src: @most_recent_video.link, frameborder:"0", allowfullscreen:true %>
+    <% end %>
+   </div>
+
+  </div>
+ </div> <!-- End Widget -->
+
+</div> <!-- End Sidebar -->

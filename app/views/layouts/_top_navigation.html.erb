@@ -1,0 +1,39 @@
+<div id="top-navigation">
+ <div class="container">
+
+  <!-- Navigation -->
+  <ul class="nav-menu pull-left">
+    <li class="active"><a href="index-2.html">Home</a></li>
+    <li><a href="#">Portfólios</a></li>
+    <li><a href="#">Posts</a></li>
+    <li><a href="#">Galeria</a></li>
+    <li><a href="#">Sons</a></li>
+    <li><a href="#">Enquetes</a></li>
+    <li><a href="#">Patrocínios</a></li>
+    <li><a href="#">Contato</a></li>
+    <li>
+      <%= link_to 'Login', new_user_session_path, class: 'btn btn-small' %>
+    </li>
+  </ul>
+
+  <!-- Search Form -->
+  <form name="form-search" method="post" action="http://dotstheme.com/demo/premium/enews_responsive_news_template/html/stretched/search.html" class="form-search pull-right">
+   <input type="text" name="search" placeholder="Pesquise..." class="input-icon input-icon-search" />
+  </form>
+
+  <!-- Social Media -->
+  <ul class="social pull-right">
+    <li>
+      <a href="#" data-placement="bottom" data-original-title="Like us on Facebook">
+        <%= image_tag(image_url('social/infocus/facebook-logo.png'), alt:'Facebook') %>
+      </a>
+    </li>
+   <li>
+     <a href="#" data-placement="bottom" data-original-title="Follow on Twitter">
+       <%= image_tag(image_url('social/infocus/twitter.png'), alt:'Twitter') %>
+     </a>
+   </li>
+  </ul>
+
+ </div> <!-- End Container -->
+</div> <!-- End Top-Navigation -->

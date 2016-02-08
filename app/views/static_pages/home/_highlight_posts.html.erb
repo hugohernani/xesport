@@ -1,0 +1,34 @@
+<div id="highlight-posts" class="clearfix">
+  <ul>
+    <% @highlighted_entries.each_with_index do |entry, index| %>
+      <%= content_tag :li, class: masked_size_class(index) do %> <!-- One -->
+        <%= content_tag :div, class: "flexslider highlight-#{number_humanize(index+1)} loading" do %>
+          <ul class="slides"> <!-- Images -->
+            <% if entry.images.any? %>
+              <% entry.images.each do |image| %>
+                <%= content_tag :li do %>
+                  <%= content_tag :figure, "", style: "background-image:url( #{image.file.url(:medium)});" %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%= content_tag :li do %>
+                <%= content_tag :figure, "", style: "background-image:url( #{image_url('content/600/1.jpg')});" %>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
+       <%= link_to '#', title: (entry.title.present?? entry.title : 'Titulo') do %>
+          <%= content_tag :div, "", class: 'masked-hover' %>
+       <% end %> <!-- Masked Hover -->
+       <div class="masked-base"></div> <!-- Masked Base -->
+       <div class="masked-color masked-red"></div> <!-- Masked Color -->
+       <div class="text">
+        <%= content_tag :h2, entry.title if entry.title.present? %>
+        <%= content_tag :span, entry.date, class: "meta" if entry.date.present? %>
+        <%= content_tag :p, entry.description if entry.description && index == 0 %>
+       </div>
+     <% end %>
+    <% end %>
+  </ul>
+
+</div> <!-- End Highlight Posts -->

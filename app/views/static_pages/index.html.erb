@@ -1,0 +1,50 @@
+<%= render 'static_pages/home/highlight_posts' %>
+<%= render 'static_pages/home/headlines' if @headlines.any? %>
+
+<div class="row-fluid">
+ <div id="main" class="span8 image-preloader">
+
+  <div class="row-fluid">
+
+   <% @entries.each_slice(2) do |sliced_entries| %>
+
+    <% sliced_entries.each do |entry| %>
+      <div class="span6 post no-margin-left">
+       <figure>
+         <% if entry.images.any? %>
+          <%= image_tag(entry.images.first.file.url(:small), alt: entry.title) %>
+         <% end %>
+        <div class="cat-name">
+         <% if entry.category %>
+          <span class="base"><%= entry.category.name.capitalize %></span>
+         <% end %>
+         <span class="arrow"></span>
+        </div>
+       </figure>
+       <div class="text">
+        <h2><%= link_to entry.title, '#', title: "Veja #{entry.title}" %></h2>
+        <%= content_tag :p, entry.description if entry.description %>
+        <%= content_tag :meta do %>
+          <% if entry.user %>
+          By <%= link_to entry.author.name, '#' %>
+          <% end %>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <%= distance_of_time_in_words(entry.created_at, Date.today) %>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="single_post.html">15 comments</a>
+        <% end %>
+       </div>
+      </div>
+    <% end %>
+    <div class="clearfix ie-sep"></div> <!-- Clearfix -->
+   <% end %>
+
+   <div class="clearfix ie-sep"></div> <!-- Clearfix -->
+   <%= render 'static_pages/home/galleries' %>
+
+  </div> <!-- End Row-Fluid -->
+ </div> <!-- End Main -->
+
+ <%= render 'shared/sidebar' %>
+
+</div> <!-- End Row-Fluid -->

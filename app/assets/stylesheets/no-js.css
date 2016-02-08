@@ -1,0 +1,28 @@
+figure iframe {
+	width:100% !important;
+	height:auto !important;
+}
+
+.figure-overlay a div {
+	top:0px;
+	left:-100%;
+	-webkit-transition:all 0.3s ease;
+	-moz-transition:all 0.3s ease-in-out;
+	-o-transition:all 0.3s ease-in-out;
+	-ms-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out;
+}
+.figure-overlay a:hover div { left:0px; }
+.figure-hover:hover .figure-hover-masked { display:block; }
+
+.home-slider .home-slider-carousel, .home-slider3 .home-slider3-carousel { display:none; }
+
+.headlines .text-rotator div { display:none; }
+.headlines .text-rotator, .headlines .text-rotator div:first-child { display:block; }
+
+.blog-musics .post figure, .single figure.embed-section, .page figure.embed-section { background-color:#000; }
+
+.flexslider .slides > li:first-child { display:block; }
+
+div.flexslider.slider-carousel { display:none; }
+div.flexslider.slider-gallery { margin-bottom:25px; }

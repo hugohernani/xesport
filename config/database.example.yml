@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: db_development
+  username: username
+  password: passoword
+
+test:
+  <<: *default
+  database: db_test
+  username: username
+  password: passoword
+
+production:
+  <<: *default
+  database: <%= ENV["POSTGRESQL_DATABASE"] %>
+  username: <%= ENV["POSTGRESQL_USERNAME"] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>

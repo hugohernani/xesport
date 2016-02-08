@@ -1,0 +1,2 @@
+class Portfolio < Entry
+end

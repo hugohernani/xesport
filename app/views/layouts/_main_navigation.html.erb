@@ -1,0 +1,22 @@
+<nav id="main-navigation" class="clearfix">
+ <ul>
+  <% @categories.each do |category| %>
+    <li>
+      <% if category.categories.any? %>
+        <%= link_to '#' do %>
+          <%= category.name %><i class="arrow-main-nav"></i>
+        <% end %>
+        <ul>
+          <% category.categories.each do |subcategory| %>
+            <%= link_to '#' do %>
+              <%= subcategory.name %></i>
+            <% end %>
+          <% end %>
+        </ul>
+      <% else %>
+        <%= link_to category.name, '#' %>
+      <% end %>
+    </li>
+  <% end %>
+ </ul>
+</nav> <!-- End Main-Navigation -->

@@ -1,0 +1,2 @@
+class Ad < Entry
+end

@@ -1,0 +1,8 @@
+<div class="headlines clearfix">
+  <span class="base"><%= "#{Date.today.day}<i>#{Date.today.strftime("%a")}</i>".html_safe %></span>
+  <div class="text-rotator">
+  <% @headlines.each do |entry| %>
+    <div><%= link_to entry.title, '#', title: "Veja #{entry.title}" %></div>
+  <% end %>
+  </div>
+</div> <!-- End Headlines -->
